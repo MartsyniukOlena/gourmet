@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from taggit.managers import TaggableManager
 
 # Create your models here.
 
@@ -21,3 +22,4 @@ class Recipe(models.Model):
     ]
     difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     created_on = models.DateTimeField(auto_now_add=True)
+    tags = TaggableManager()
