@@ -16,9 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from recipes import views as recipes_views
 
 urlpatterns = [
-    path("recipes/", recipes_views.my_recipes, name='recipes'),
+    path("", include("recipes.urls"), name='recipes-urls'),
     path('admin/', admin.site.urls),
 ]
