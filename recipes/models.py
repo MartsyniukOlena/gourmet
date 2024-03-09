@@ -2,6 +2,8 @@ from django.db import models
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 
+STATUS = ((0, "Draft"), (1, "Published"))
+
 # Create your models here.
 
 class Recipe(models.Model):
@@ -22,4 +24,12 @@ class Recipe(models.Model):
     ]
     difficulty_level = models.CharField(max_length=20, choices=DIFFICULTY_CHOICES)
     created_on = models.DateTimeField(auto_now_add=True)
+    status = models.IntegerField(choices=STATUS, default=0)
+    updated_on = models.DateTimeField(auto_now=True)
     tags = TaggableManager()
+
+    class Meta:
+        ordering = ["-created_on"]
+
+    def __str__(self):
+        return f"{self.title} | written by {self.author}"
