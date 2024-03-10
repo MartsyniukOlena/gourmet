@@ -13,11 +13,13 @@
     {% for recipe in object_list %}
     <h2>{{recipe.title}}</h2>
     <p>Author: {{recipe.author}}</p>
+    <p>{{  recipe.description  }}</p>
     <p>Tags:</p>
     <ul>
         {% for tag in recipe.tags.all %}
             <li>{{ tag }}</li>
         {% endfor %}
+    </ul>
     {% endfor %}
 </body>
 

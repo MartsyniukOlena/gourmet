@@ -11,6 +11,7 @@ class Recipe(models.Model):
     slug = models.SlugField(max_length=200, unique=True, default='')
     author = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name="recipe_posts")
+    description = models.TextField(blank=True)
     ingredients = models.TextField()
     instructions = models.TextField()
     cooking_time = models.PositiveIntegerField(help_text='Time in minutes', default=0)
