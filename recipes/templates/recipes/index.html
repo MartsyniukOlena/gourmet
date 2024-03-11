@@ -7,23 +7,33 @@
     <div class="row">
 
         <!-- Blog Entries Column -->
+        <!-- index.html content starts here -->
+<div class="container-fluid">
+    <div class="row">
+
+        <!-- Blog Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for recipe in recipe_list %}
-                <div class="col-md-4 recipe-containers" id="recipes">
+                <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
-                                <img src="" class="img-fluid" alt="...">
-                            </div>
-                            <a href="" class="recipe-link">
-                                <h2 class="card-title">{{ recipe.title }}</h2>
                                 
+                                <img class="card-img-top" src="https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg?quality=90&resize=556,505"
+                                    alt="placeholder image">
+                             
+                                <img class="card-img-top" src="" alt="">
+                           
+                            </div>
+                            <a href="" class="post-link">
+                                <h2 class="card-title">{{ recipe.title }}</h2>
                             </a>
-                            <hr />
                             <p class="card-text">{{ recipe.excerpt }}</p>
-                            <p class="author">By {{ recipe.author }}</p>
-                            <p class="card-text text-muted h6">{{ recipe.created_on}}</p>
+
+                            <p class="card-text text-muted h6">{{ recipe.created_on}}
+                            </p>
+                            <p class="author">Author: {{ recipe.author }}</p>
                             <ul class="list-unstyled">
                                 {% for tag in recipe.tags.all %}
                                 <li>{{ tag }}</li>
