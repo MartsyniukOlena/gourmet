@@ -83,17 +83,17 @@ ___________________________________________
     width: 75%;
 }
 
-.post-link {
+.recipe-link {
     text-decoration: none;
     color: #445261;
 }
 
-.post-link:hover,
+.recipe-link:hover,
 .page-link {
     color: #A46877;
 }
 
-.post-title {
+.recipe-title {
     margin-top: 10%;
     margin-left: 5%;
     font-weight: 700;

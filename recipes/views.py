@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from .models import Recipe
 
@@ -8,4 +8,26 @@ class RecipeList(generic.ListView):
     template_name = "recipes/index.html"
     paginate_by = 6
 
-    
+
+def recipe_detail(request, slug):
+    """
+    Display an individual :model:`recipes.Recipe`.
+
+    **Context**
+
+    ``recipe``
+        An instance of :model:`recipes.Recipe`.
+
+    **Template:**
+
+    :template:`recipes/recipe_detail.html`
+    """
+
+    queryset = Recipe.objects.filter(status=1)
+    recipe = get_object_or_404(queryset, slug=slug)
+
+    return render(
+        request,
+        "recipes/recipe_detail.html",
+        {"recipe": recipe},
+    )
