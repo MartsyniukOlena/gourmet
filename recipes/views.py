@@ -6,7 +6,7 @@ from .models import Recipe
 class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1)
     template_name = "recipes/index.html"
-    paginate_by = 6
+    paginate_by = 3
 
 
 def recipe_detail(request, slug):
@@ -31,3 +31,7 @@ def recipe_detail(request, slug):
         "recipes/recipe_detail.html",
         {"recipe": recipe},
     )
+
+def featured_recipes(request):
+    featured_recipes = Recipe.objects.filter(is_featured=True)
+    return render(request, 'featured_recipes.html', {'featured_recipes': featured_recipes})

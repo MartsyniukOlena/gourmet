@@ -53,7 +53,7 @@
       </header>
 
       <main>
-
+        {% block carousel %}
         <div id="carouselExampleAutoplaying" class="carousel slide pointer-event" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active">
@@ -96,7 +96,7 @@
             <span class="visually-hidden">Next</span>
           </button>
         </div>
-
+        {% endblock carousel %}
         {% block content %}
         <!-- Content Goes here -->
         {% endblock content %}

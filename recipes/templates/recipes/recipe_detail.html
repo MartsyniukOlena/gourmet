@@ -2,6 +2,10 @@
 {% block content %}
 {% load static %}
 
+{% block carousel %}
+
+{% endblock carousel %}
+
 <div class="masthead">
     <div class="container">
         <div class="row g-0">
@@ -9,10 +13,11 @@
                 <!-- Post title goes in these h1 tags -->
                 <h1 class="recipe-title">{{ recipe.title }}</h1>
                 <!-- Post author goes before the | the post's created date goes after -->
-                <p class="recipe-subtitle">{{ recipe.author }} | {{ recipe.created_on }}</p>
+                <p class="recipe-subtitle">By {{ recipe.author }} | {{ recipe.created_on }}</p>
+                <p class="card-text">{{ recipe.excerpt | safe }}</p>
             </div>
             <div class="d-none d-md-block col-md-6 masthead-image">
-                <img src="{% static 'images/recipe-default.jpg' %}" class="scale" alt="placeholder">
+                <img src="{% static 'images/recipe-default.avif' %}" class="scale" alt="placeholder">
             </div>
         </div>
     </div>
@@ -22,15 +27,24 @@
     <div class="row">
         <div class="col card mb-4  mt-3 left  top">
             <div class="card-body">
-
+                <h4>Ingredients</h4>
                 <p class="card-text">
-                {{ recipe.excerpt | safe }}
-                </p>
-                <p class="card-text"></p>
                 {{ recipe.ingredients | safe }}
                 </p>
-                <p class="card-text"></p>
+                <h4>Instructions</h4>
+                <p class="card-text">
                 {{ recipe.instructions | safe }}
+                </p>
+                <h4>Cooking Time</h4>
+                <p class="card-text">
+                {{ recipe.cooking_time | safe }} minutes
+                </p>
+                <h4>Difficulty Level</h4>
+                <p class="card-text">
+                {{ recipe.difficulty_level | safe }}
+                </p>
+                <p class="card-text">
+                Updated On{{ recipe.updated_on }}
                 </p>
             </div>
         </div>
